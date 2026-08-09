@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Outils — INSAF Finance</title>
+<meta name="description" content="Passe à l'action avec nos simulateurs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="/insaf-finance/assets/outils-adHeTCfk.js"></script>
+  <link rel="modulepreload" crossorigin href="/insaf-finance/assets/main--Rd5uZl4.js">
+  <link rel="stylesheet" crossorigin href="/insaf-finance/assets/main-Cs0OpVd9.css">
+</head>
+<body data-page="outils">
+
+<header class="navbar">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <svg viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="90" cy="105" rx="34" ry="44" fill="#D4A017"/>
+        <rect x="57" y="90" width="66" height="12" rx="2" fill="#1B4332" opacity="0.85"/>
+        <rect x="57" y="112" width="66" height="12" rx="2" fill="#1B4332" opacity="0.85"/>
+        <circle cx="90" cy="62" r="28" fill="#D4A017"/>
+        <ellipse cx="80" cy="58" rx="7" ry="8" fill="#1B4332"/>
+        <ellipse cx="100" cy="58" rx="7" ry="8" fill="#1B4332"/>
+        <circle cx="82.5" cy="55.5" r="2.5" fill="white"/>
+        <circle cx="102.5" cy="55.5" r="2.5" fill="white"/>
+        <path d="M80 72 Q90 80 100 72" stroke="#1B4332" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span class="brand-name">INSAF Finance</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html" data-page="accueil">Accueil</a>
+      <a href="contenu.html" data-page="contenu">Contenu</a>
+      <a href="outils.html" data-page="outils">Outils</a>
+      <a href="contact.html" data-page="contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="https://calendly.com/yanis-mahmoud/60min" target="_blank" rel="noopener"><span class="btn-label">Investir maintenant →</span></a>
+      <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="tool-hero has-grain">
+  <div class="container">
+    <span class="eyebrow">Simulateurs</span>
+    <h1>Les outils INSAF</h1>
+    <p class="section-sub">Passe à l'action avec nos simulateurs.</p>
+  </div>
+</section>
+
+<section class="simulateur">
+  <div class="container">
+    <div class="simulateur-card">
+      <div class="simulateur-header">
+        <h2>Simulateur PER — Calcule ton avantage fiscal</h2>
+        <p>Découvre combien tu peux économiser sur tes impôts grâce au Plan d'Épargne Retraite.</p>
+      </div>
+
+      <form id="per-form">
+        <div class="form-grid">
+          <div class="form-col">
+            <div class="form-group">
+              <label>Situation professionnelle</label>
+              <div class="radio-group">
+                <label class="radio-pill">
+                  <input type="radio" name="situation" value="salarie" checked>
+                  <span>Salarié</span>
+                </label>
+                <label class="radio-pill">
+                  <input type="radio" name="situation" value="tns">
+                  <span>Travailleur non salarié (TNS)</span>
+                </label>
+                <label class="radio-pill">
+                  <input type="radio" name="situation" value="fonctionnaire">
+                  <span>Fonctionnaire</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="revenu-input">Revenu net annuel imposable (€)</label>
+              <input type="number" id="revenu-input" min="0" step="500" placeholder="Ex: 40 000" required>
+            </div>
+
+            <div class="form-group">
+              <label for="situation-familiale">Situation familiale</label>
+              <select id="situation-familiale">
+                <option value="1">Célibataire (1 part)</option>
+                <option value="2">Marié/Pacsé sans enfant (2 parts)</option>
+                <option value="2.5">Marié + 1 enfant (2.5 parts)</option>
+                <option value="3">Marié + 2 enfants (3 parts)</option>
+                <option value="4">Marié + 3 enfants (4 parts)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="tmi-select">TMI actuel (Taux Marginal d'Imposition)</label>
+              <select id="tmi-select">
+                <option value="0">0%</option>
+                <option value="11">11%</option>
+                <option value="30">30%</option>
+                <option value="41">41%</option>
+                <option value="45">45%</option>
+                <option value="auto" selected>Je ne sais pas (le calculer automatiquement)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-col">
+            <div class="form-group">
+              <label for="versements-input">Versements PER prévus cette année (€)</label>
+              <input type="number" id="versements-input" min="0" max="50000" step="500" value="3000">
+              <input type="range" id="versements-slider" min="0" max="50000" step="500" value="3000">
+            </div>
+
+            <div class="form-group">
+              <label for="plafond-reporte">
+                <span class="tooltip-wrap">
+                  Plafond PER reportable non utilisé (€)
+                  <span class="tooltip-icon" tabindex="0">?</span>
+                  <span class="tooltip-bubble">Ce montant figure sur votre avis d'imposition.</span>
+                </span>
+              </label>
+              <input type="number" id="plafond-reporte" min="0" step="100" placeholder="0 si première fois" value="0">
+            </div>
+
+            <div class="form-group">
+              <label for="age-actuel">Âge actuel</label>
+              <input type="number" id="age-actuel" min="18" max="80" placeholder="Ex: 35" value="35" required>
+            </div>
+
+            <div class="form-group">
+              <label for="age-retraite">Âge de départ à la retraite souhaité</label>
+              <input type="number" id="age-retraite" min="18" max="80" placeholder="Ex: 65" value="65" required>
+            </div>
+
+            <div class="form-group">
+              <label for="rendement-slider">Rendement annuel estimé (%) <span class="slider-value" id="rendement-value">5%</span></label>
+              <input type="range" id="rendement-slider" min="2" max="10" step="0.5" value="5">
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-gold btn-block btn-lg">Calculer mes économies →</button>
+      </form>
+    </div>
+
+    <div class="results-section" id="results-section">
+      <div class="simulateur-card">
+        <h2>Vos résultats</h2>
+
+        <div class="metric-grid">
+          <div class="metric-card">
+            <div class="metric-label">Économie d'impôts</div>
+            <div class="metric-value" id="metric-economie">—</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Effort d'épargne réel</div>
+            <div class="metric-value" id="metric-effort">—</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Taux d'optimisation</div>
+            <div class="metric-value" id="metric-taux">—</div>
+          </div>
+        </div>
+
+        <div class="chart-wrap">
+          <canvas id="per-chart" height="100"></canvas>
+          <p style="text-align:center; margin-top: 16px; margin-bottom: 0;">Capital estimé à la retraite : <strong id="capital-final">—</strong></p>
+        </div>
+
+        <div class="info-box">
+          <h4>Comment est calculée ton économie ?</h4>
+          <p>Ton économie d'impôts dépend de ton TMI (Taux Marginal d'Imposition) et du montant de tes versements déductibles. Le plafond de déduction correspond à 10% de tes revenus nets imposables, dans la limite d'un plafond maximum fixé à 37 094 € pour les salariés et fonctionnaires, et 85 780 € pour les travailleurs non salariés (chiffres 2025). Le plafond reportable des trois années précédentes s'ajoute à ce plafond annuel.</p>
+          <p class="note">Ces résultats sont des estimations indicatives et ne constituent pas un conseil personnalisé.</p>
+        </div>
+
+        <div class="results-cta">
+          <p>Tu veux être accompagné pour ouvrir ton PER ?</p>
+          <a href="https://calendly.com/yanis-mahmoud/60min" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Investir maintenant →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="coming-soon-grid">
+      <div class="coming-soon-card">
+        <h3>Calculateur de Zakat</h3>
+        <p>Estime ta zakat sur l'épargne et les actifs.</p>
+        <span class="coming-soon-pill">Bientôt disponible</span>
+      </div>
+      <div class="coming-soon-card">
+        <h3>Simulateur d'épargne</h3>
+        <p>Projette la croissance de ton épargne dans le temps.</p>
+        <span class="coming-soon-pill">Bientôt disponible</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <svg viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="90" cy="105" rx="34" ry="44" fill="#D4A017"/>
+          <circle cx="90" cy="62" r="28" fill="#D4A017"/>
+          <ellipse cx="80" cy="58" rx="7" ry="8" fill="#1B4332"/>
+          <ellipse cx="100" cy="58" rx="7" ry="8" fill="#1B4332"/>
+          <circle cx="82.5" cy="55.5" r="2.5" fill="white"/>
+          <circle cx="102.5" cy="55.5" r="2.5" fill="white"/>
+          <path d="M80 72 Q90 80 100 72" stroke="#1B4332" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        </svg>
+        <div class="footer-brand-text">
+          <span class="brand-name">INSAF Finance</span>
+          <span class="footer-tagline">La finance, enfin accessible.</span>
+        </div>
+      </div>
+      <nav class="footer-links">
+        <a href="index.html">Accueil</a>
+        <a href="contenu.html">Contenu</a>
+        <a href="outils.html">Outils</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/insaf_finance/" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
+        <a href="https://x.com/InsafFinance" target="_blank" rel="noopener" aria-label="X">𝕏</a>
+        <a href="https://www.youtube.com/@ParlonsFinanceIslamique" target="_blank" rel="noopener" aria-label="YouTube">▶</a>
+        <a href="https://www.linkedin.com/in/yanis-mahmoud/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 INSAF Finance</span>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="results-modal">
+  <div class="modal">
+    <button class="modal-close" aria-label="Fermer">×</button>
+    <h3>Vos résultats sont prêts 🐝</h3>
+    <p>Entre ton email pour accéder à ta simulation. Tu recevras aussi nos conseils finance chaque semaine.</p>
+    <form>
+      <input type="email" required placeholder="ton@email.com" aria-label="Adresse email">
+      <button type="submit" class="btn btn-gold btn-block">Voir mes résultats</button>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>
