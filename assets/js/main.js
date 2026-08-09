@@ -63,7 +63,7 @@ function initNewsletterForms() {
         return;
       }
       saveEmail(email);
-      showToast('Bienvenue dans la ruche 🐝');
+      showToast('Bienvenue chez INSAF 🌱');
       form.reset();
     });
   });
@@ -132,9 +132,44 @@ function initFilters() {
   });
 }
 
+// ---- Scroll reveal (fade-up, staggered) ----
+function initScrollReveal() {
+  const targets = document.querySelectorAll('.reveal');
+  if (!targets.length) return;
+
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach((el) => el.classList.add('in-view'));
+    return;
+  }
+
+  const groups = new Map();
+  targets.forEach((el) => {
+    const parent = el.parentElement;
+    if (!groups.has(parent)) groups.set(parent, []);
+    groups.get(parent).push(el);
+  });
+  groups.forEach((siblings) => {
+    siblings.forEach((el, i) => {
+      el.style.transitionDelay = `${Math.min(i * 90, 360)}ms`;
+    });
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  targets.forEach((el) => observer.observe(el));
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initNav();
   initNewsletterForms();
   initEbookModal();
   initFilters();
+  initScrollReveal();
 });

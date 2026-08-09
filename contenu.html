@@ -7,7 +7,7 @@
 <meta name="description" content="Vidéos, e-books, articles — tout ce qu'il te faut pour progresser.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Bricolage+Grotesque:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body data-page="contenu">
@@ -15,18 +15,14 @@
 <header class="navbar">
   <div class="container">
     <a href="index.html" class="brand">
-      <svg viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="90" cy="105" rx="34" ry="44" fill="#D4A017"/>
-        <rect x="57" y="90" width="66" height="12" rx="2" fill="#1B4332" opacity="0.85"/>
-        <rect x="57" y="112" width="66" height="12" rx="2" fill="#1B4332" opacity="0.85"/>
-        <circle cx="90" cy="62" r="28" fill="#D4A017"/>
-        <ellipse cx="80" cy="58" rx="7" ry="8" fill="#1B4332"/>
-        <ellipse cx="100" cy="58" rx="7" ry="8" fill="#1B4332"/>
-        <circle cx="82.5" cy="55.5" r="2.5" fill="white"/>
-        <circle cx="102.5" cy="55.5" r="2.5" fill="white"/>
-        <path d="M80 72 Q90 80 100 72" stroke="#1B4332" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-      </svg>
-      <span class="brand-name">INSAF Finance</span>
+      <span class="brand-mark">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 40V21" stroke="#33CAC2" stroke-width="3" stroke-linecap="round"/>
+          <path d="M24 24C24 24 8 22 6 8C6 8 22 7 24 24Z" fill="#00BE62"/>
+          <path d="M24 18C24 18 40 16 42 4C42 4 26 3 24 18Z" fill="#33CAC2"/>
+        </svg>
+      </span>
+      <span class="brand-name">INSAF <span class="accent">Finance</span></span>
     </a>
     <nav class="nav-links">
       <a href="index.html" data-page="accueil">Accueil</a>
@@ -42,6 +38,8 @@
 </header>
 
 <section class="hero-compact has-grain">
+  <span class="blob blob-green" style="width:180px;height:180px;top:-40px;left:-60px;"></span>
+  <span class="blob blob-cyan" style="width:150px;height:150px;bottom:-50px;right:0;"></span>
   <div class="container">
     <span class="eyebrow">Bibliothèque</span>
     <h1>Tout le contenu INSAF</h1>
@@ -51,7 +49,7 @@
 
 <section class="video-section">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head reveal">
       <span class="eyebrow">Parlons Finance Islamique</span>
       <h2 class="section-title">Les dernières vidéos</h2>
     </div>
@@ -61,18 +59,17 @@
 
 <section class="ebooks">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head reveal">
       <span class="eyebrow">Ressources</span>
       <h2 class="section-title">E-Books</h2>
     </div>
     <div class="ebook-grid">
-      <div class="ebook-card">
+      <div class="ebook-card reveal">
         <div class="ebook-cover">
-          <svg viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg" width="44" height="44">
-            <ellipse cx="90" cy="105" rx="34" ry="44" fill="#D4A017"/>
-            <circle cx="90" cy="62" r="28" fill="#D4A017"/>
-            <ellipse cx="80" cy="58" rx="7" ry="8" fill="#1B4332"/>
-            <ellipse cx="100" cy="58" rx="7" ry="8" fill="#1B4332"/>
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+            <path d="M24 38V22" stroke="#33CAC2" stroke-width="3" stroke-linecap="round"/>
+            <path d="M24 25C24 25 10 23 8 10C8 10 22 9 24 25Z" fill="#00BE62"/>
+            <path d="M24 20C24 20 38 18 40 6C40 6 26 5 24 20Z" fill="#33CAC2"/>
           </svg>
           <span>Guide de l'investisseur musulman débutant</span>
         </div>
@@ -80,13 +77,12 @@
         <p>Les fondamentaux pour démarrer sereinement.</p>
         <button class="btn btn-outline btn-block" data-ebook="Guide de l'investisseur musulman débutant">Télécharger gratuitement →</button>
       </div>
-      <div class="ebook-card">
+      <div class="ebook-card reveal">
         <div class="ebook-cover">
-          <svg viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg" width="44" height="44">
-            <ellipse cx="90" cy="105" rx="34" ry="44" fill="#D4A017"/>
-            <circle cx="90" cy="62" r="28" fill="#D4A017"/>
-            <ellipse cx="80" cy="58" rx="7" ry="8" fill="#1B4332"/>
-            <ellipse cx="100" cy="58" rx="7" ry="8" fill="#1B4332"/>
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+            <path d="M24 38V22" stroke="#33CAC2" stroke-width="3" stroke-linecap="round"/>
+            <path d="M24 25C24 25 10 23 8 10C8 10 22 9 24 25Z" fill="#00BE62"/>
+            <path d="M24 20C24 20 38 18 40 6C40 6 26 5 24 20Z" fill="#33CAC2"/>
           </svg>
           <span>Comprendre le PER en 10 minutes</span>
         </div>
@@ -94,13 +90,12 @@
         <p>L'essentiel du Plan d'Épargne Retraite, sans jargon.</p>
         <button class="btn btn-outline btn-block" data-ebook="Comprendre le PER en 10 minutes">Télécharger gratuitement →</button>
       </div>
-      <div class="ebook-card">
+      <div class="ebook-card reveal">
         <div class="ebook-cover">
-          <svg viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg" width="44" height="44">
-            <ellipse cx="90" cy="105" rx="34" ry="44" fill="#D4A017"/>
-            <circle cx="90" cy="62" r="28" fill="#D4A017"/>
-            <ellipse cx="80" cy="58" rx="7" ry="8" fill="#1B4332"/>
-            <ellipse cx="100" cy="58" rx="7" ry="8" fill="#1B4332"/>
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+            <path d="M24 38V22" stroke="#33CAC2" stroke-width="3" stroke-linecap="round"/>
+            <path d="M24 25C24 25 10 23 8 10C8 10 22 9 24 25Z" fill="#00BE62"/>
+            <path d="M24 20C24 20 38 18 40 6C40 6 26 5 24 20Z" fill="#33CAC2"/>
           </svg>
           <span>Budget halal : la méthode complète</span>
         </div>
@@ -116,15 +111,9 @@
   <div class="newsletter compact">
     <div class="container">
       <div class="newsletter-text">
-        <svg viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="90" cy="105" rx="34" ry="44" fill="#D4A017"/>
-          <circle cx="90" cy="62" r="28" fill="#D4A017"/>
-          <ellipse cx="80" cy="58" rx="7" ry="8" fill="#1B4332"/>
-          <ellipse cx="100" cy="58" rx="7" ry="8" fill="#1B4332"/>
-          <circle cx="82.5" cy="55.5" r="2.5" fill="white"/>
-          <circle cx="102.5" cy="55.5" r="2.5" fill="white"/>
-          <path d="M80 72 Q90 80 100 72" stroke="#1B4332" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-        </svg>
+        <span class="newsletter-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v12H3z" stroke="#33CAC2" stroke-width="1.7" stroke-linejoin="round"/><path d="m3 7 9 6 9-6" stroke="#33CAC2" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        </span>
         <div>
           <h3>Chaque semaine, un tip finance dans ta boîte mail.</h3>
         </div>
@@ -139,12 +128,12 @@
 
 <section class="articles">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head reveal">
       <span class="eyebrow">Blog</span>
       <h2 class="section-title">Articles</h2>
     </div>
     <div class="article-grid">
-      <a href="#" class="article-card"><!-- TODO: lien article réel -->
+      <a href="#" class="article-card reveal"><!-- TODO: lien article réel -->
         <div class="article-thumb"></div>
         <div class="article-body">
           <span class="video-badge">Finance halal</span>
@@ -153,7 +142,7 @@
           <span class="read-more">Lire l'article →</span>
         </div>
       </a>
-      <a href="#" class="article-card"><!-- TODO: lien article réel -->
+      <a href="#" class="article-card reveal"><!-- TODO: lien article réel -->
         <div class="article-thumb"></div>
         <div class="article-body">
           <span class="video-badge">Investissement</span>
@@ -162,7 +151,7 @@
           <span class="read-more">Lire l'article →</span>
         </div>
       </a>
-      <a href="#" class="article-card"><!-- TODO: lien article réel -->
+      <a href="#" class="article-card reveal"><!-- TODO: lien article réel -->
         <div class="article-thumb"></div>
         <div class="article-body">
           <span class="video-badge">Quotidien</span>
@@ -179,17 +168,15 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <svg viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="90" cy="105" rx="34" ry="44" fill="#D4A017"/>
-          <circle cx="90" cy="62" r="28" fill="#D4A017"/>
-          <ellipse cx="80" cy="58" rx="7" ry="8" fill="#1B4332"/>
-          <ellipse cx="100" cy="58" rx="7" ry="8" fill="#1B4332"/>
-          <circle cx="82.5" cy="55.5" r="2.5" fill="white"/>
-          <circle cx="102.5" cy="55.5" r="2.5" fill="white"/>
-          <path d="M80 72 Q90 80 100 72" stroke="#1B4332" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-        </svg>
+        <span class="brand-mark">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 40V21" stroke="#33CAC2" stroke-width="3" stroke-linecap="round"/>
+            <path d="M24 24C24 24 8 22 6 8C6 8 22 7 24 24Z" fill="#00BE62"/>
+            <path d="M24 18C24 18 40 16 42 4C42 4 26 3 24 18Z" fill="#33CAC2"/>
+          </svg>
+        </span>
         <div class="footer-brand-text">
-          <span class="brand-name">INSAF Finance</span>
+          <span class="brand-name">INSAF <span class="accent">Finance</span></span>
           <span class="footer-tagline">La finance, enfin accessible.</span>
         </div>
       </div>

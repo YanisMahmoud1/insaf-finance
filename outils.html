@@ -7,7 +7,7 @@
 <meta name="description" content="Passe à l'action avec nos simulateurs.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Bricolage+Grotesque:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body data-page="outils">
@@ -15,18 +15,14 @@
 <header class="navbar">
   <div class="container">
     <a href="index.html" class="brand">
-      <svg viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="90" cy="105" rx="34" ry="44" fill="#D4A017"/>
-        <rect x="57" y="90" width="66" height="12" rx="2" fill="#1B4332" opacity="0.85"/>
-        <rect x="57" y="112" width="66" height="12" rx="2" fill="#1B4332" opacity="0.85"/>
-        <circle cx="90" cy="62" r="28" fill="#D4A017"/>
-        <ellipse cx="80" cy="58" rx="7" ry="8" fill="#1B4332"/>
-        <ellipse cx="100" cy="58" rx="7" ry="8" fill="#1B4332"/>
-        <circle cx="82.5" cy="55.5" r="2.5" fill="white"/>
-        <circle cx="102.5" cy="55.5" r="2.5" fill="white"/>
-        <path d="M80 72 Q90 80 100 72" stroke="#1B4332" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-      </svg>
-      <span class="brand-name">INSAF Finance</span>
+      <span class="brand-mark">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 40V21" stroke="#33CAC2" stroke-width="3" stroke-linecap="round"/>
+          <path d="M24 24C24 24 8 22 6 8C6 8 22 7 24 24Z" fill="#00BE62"/>
+          <path d="M24 18C24 18 40 16 42 4C42 4 26 3 24 18Z" fill="#33CAC2"/>
+        </svg>
+      </span>
+      <span class="brand-name">INSAF <span class="accent">Finance</span></span>
     </a>
     <nav class="nav-links">
       <a href="index.html" data-page="accueil">Accueil</a>
@@ -42,6 +38,7 @@
 </header>
 
 <section class="tool-hero has-grain">
+  <span class="blob blob-green" style="width:180px;height:180px;top:-50px;right:5%;"></span>
   <div class="container">
     <span class="eyebrow">Simulateurs</span>
     <h1>Les outils INSAF</h1>
@@ -51,147 +48,233 @@
 
 <section class="simulateur">
   <div class="container">
-    <div class="simulateur-card">
-      <div class="simulateur-header">
-        <h2>Simulateur PER — Calcule ton avantage fiscal</h2>
-        <p>Découvre combien tu peux économiser sur tes impôts grâce au Plan d'Épargne Retraite.</p>
+    <div class="tool-switcher">
+      <label for="tool-select">Choisis ton simulateur</label>
+      <div class="tool-select-wrap">
+        <select id="tool-select" class="tool-select">
+          <option value="per">Simulateur PER — avantage fiscal</option>
+          <option value="capi">Simulateur de capitalisation</option>
+        </select>
       </div>
+    </div>
 
-      <form id="per-form">
-        <div class="form-grid">
-          <div class="form-col">
-            <div class="form-group">
-              <label>Situation professionnelle</label>
-              <div class="radio-group">
-                <label class="radio-pill">
-                  <input type="radio" name="situation" value="salarie" checked>
-                  <span>Salarié</span>
-                </label>
-                <label class="radio-pill">
-                  <input type="radio" name="situation" value="tns">
-                  <span>Travailleur non salarié (TNS)</span>
-                </label>
-                <label class="radio-pill">
-                  <input type="radio" name="situation" value="fonctionnaire">
-                  <span>Fonctionnaire</span>
-                </label>
+    <!-- ============ PANEL 1 : SIMULATEUR PER ============ -->
+    <div class="tool-panel active" id="panel-per">
+      <div class="simulateur-card">
+        <div class="simulateur-header">
+          <h2>Simulateur PER — Calcule ton avantage fiscal</h2>
+          <p>Découvre combien tu peux économiser sur tes impôts grâce au Plan d'Épargne Retraite.</p>
+        </div>
+
+        <form id="per-form">
+          <div class="form-grid">
+            <div class="form-col">
+              <div class="form-group">
+                <label>Situation professionnelle</label>
+                <div class="radio-group">
+                  <label class="radio-pill">
+                    <input type="radio" name="situation" value="salarie" checked>
+                    <span>Salarié</span>
+                  </label>
+                  <label class="radio-pill">
+                    <input type="radio" name="situation" value="tns">
+                    <span>Travailleur non salarié (TNS)</span>
+                  </label>
+                  <label class="radio-pill">
+                    <input type="radio" name="situation" value="fonctionnaire">
+                    <span>Fonctionnaire</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="revenu-input">Revenu net annuel imposable (€)</label>
+                <input type="number" id="revenu-input" min="0" step="500" placeholder="Ex: 40 000" required>
+              </div>
+
+              <div class="form-group">
+                <label for="situation-familiale">Situation familiale</label>
+                <select id="situation-familiale">
+                  <option value="1">Célibataire (1 part)</option>
+                  <option value="2">Marié/Pacsé sans enfant (2 parts)</option>
+                  <option value="2.5">Marié + 1 enfant (2.5 parts)</option>
+                  <option value="3">Marié + 2 enfants (3 parts)</option>
+                  <option value="4">Marié + 3 enfants (4 parts)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="tmi-select">TMI actuel (Taux Marginal d'Imposition)</label>
+                <select id="tmi-select">
+                  <option value="0">0%</option>
+                  <option value="11">11%</option>
+                  <option value="30">30%</option>
+                  <option value="41">41%</option>
+                  <option value="45">45%</option>
+                  <option value="auto" selected>Je ne sais pas (le calculer automatiquement)</option>
+                </select>
               </div>
             </div>
 
-            <div class="form-group">
-              <label for="revenu-input">Revenu net annuel imposable (€)</label>
-              <input type="number" id="revenu-input" min="0" step="500" placeholder="Ex: 40 000" required>
-            </div>
+            <div class="form-col">
+              <div class="form-group">
+                <label for="versements-input">Versements PER prévus cette année (€)</label>
+                <input type="number" id="versements-input" min="0" max="50000" step="500" value="3000">
+                <input type="range" id="versements-slider" min="0" max="50000" step="500" value="3000">
+              </div>
 
-            <div class="form-group">
-              <label for="situation-familiale">Situation familiale</label>
-              <select id="situation-familiale">
-                <option value="1">Célibataire (1 part)</option>
-                <option value="2">Marié/Pacsé sans enfant (2 parts)</option>
-                <option value="2.5">Marié + 1 enfant (2.5 parts)</option>
-                <option value="3">Marié + 2 enfants (3 parts)</option>
-                <option value="4">Marié + 3 enfants (4 parts)</option>
-              </select>
-            </div>
+              <div class="form-group">
+                <label for="plafond-reporte">
+                  <span class="tooltip-wrap">
+                    Plafond PER reportable non utilisé (€)
+                    <span class="tooltip-icon" tabindex="0">?</span>
+                    <span class="tooltip-bubble">Ce montant figure sur votre avis d'imposition.</span>
+                  </span>
+                </label>
+                <input type="number" id="plafond-reporte" min="0" step="100" placeholder="0 si première fois" value="0">
+              </div>
 
-            <div class="form-group">
-              <label for="tmi-select">TMI actuel (Taux Marginal d'Imposition)</label>
-              <select id="tmi-select">
-                <option value="0">0%</option>
-                <option value="11">11%</option>
-                <option value="30">30%</option>
-                <option value="41">41%</option>
-                <option value="45">45%</option>
-                <option value="auto" selected>Je ne sais pas (le calculer automatiquement)</option>
-              </select>
+              <div class="form-group">
+                <label for="age-actuel">Âge actuel</label>
+                <input type="number" id="age-actuel" min="18" max="80" placeholder="Ex: 35" value="35" required>
+              </div>
+
+              <div class="form-group">
+                <label for="age-retraite">Âge de départ à la retraite souhaité</label>
+                <input type="number" id="age-retraite" min="18" max="80" placeholder="Ex: 65" value="65" required>
+              </div>
+
+              <div class="form-group">
+                <label for="rendement-slider">Rendement annuel estimé (%) <span class="slider-value" id="rendement-value">5%</span></label>
+                <input type="range" id="rendement-slider" min="2" max="10" step="0.5" value="5">
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-gold btn-block btn-lg">Calculer mes économies →</button>
+        </form>
+      </div>
+
+      <div class="results-section" id="results-section">
+        <div class="simulateur-card">
+          <h2>Vos résultats</h2>
+
+          <div class="metric-grid">
+            <div class="metric-card">
+              <div class="metric-label">Économie d'impôts</div>
+              <div class="metric-value" id="metric-economie">—</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Effort d'épargne réel</div>
+              <div class="metric-value" id="metric-effort">—</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Taux d'optimisation</div>
+              <div class="metric-value" id="metric-taux">—</div>
             </div>
           </div>
 
-          <div class="form-col">
-            <div class="form-group">
-              <label for="versements-input">Versements PER prévus cette année (€)</label>
-              <input type="number" id="versements-input" min="0" max="50000" step="500" value="3000">
-              <input type="range" id="versements-slider" min="0" max="50000" step="500" value="3000">
-            </div>
-
-            <div class="form-group">
-              <label for="plafond-reporte">
-                <span class="tooltip-wrap">
-                  Plafond PER reportable non utilisé (€)
-                  <span class="tooltip-icon" tabindex="0">?</span>
-                  <span class="tooltip-bubble">Ce montant figure sur votre avis d'imposition.</span>
-                </span>
-              </label>
-              <input type="number" id="plafond-reporte" min="0" step="100" placeholder="0 si première fois" value="0">
-            </div>
-
-            <div class="form-group">
-              <label for="age-actuel">Âge actuel</label>
-              <input type="number" id="age-actuel" min="18" max="80" placeholder="Ex: 35" value="35" required>
-            </div>
-
-            <div class="form-group">
-              <label for="age-retraite">Âge de départ à la retraite souhaité</label>
-              <input type="number" id="age-retraite" min="18" max="80" placeholder="Ex: 65" value="65" required>
-            </div>
-
-            <div class="form-group">
-              <label for="rendement-slider">Rendement annuel estimé (%) <span class="slider-value" id="rendement-value">5%</span></label>
-              <input type="range" id="rendement-slider" min="2" max="10" step="0.5" value="5">
-            </div>
+          <div class="chart-wrap">
+            <canvas id="per-chart" height="100"></canvas>
+            <p style="text-align:center; margin-top: 16px; margin-bottom: 0;">Capital estimé à la retraite : <strong id="capital-final">—</strong></p>
           </div>
-        </div>
 
-        <button type="submit" class="btn btn-gold btn-block btn-lg">Calculer mes économies →</button>
-      </form>
-    </div>
-
-    <div class="results-section" id="results-section">
-      <div class="simulateur-card">
-        <h2>Vos résultats</h2>
-
-        <div class="metric-grid">
-          <div class="metric-card">
-            <div class="metric-label">Économie d'impôts</div>
-            <div class="metric-value" id="metric-economie">—</div>
+          <div class="info-box">
+            <h4>Comment est calculée ton économie ?</h4>
+            <p>Ton économie d'impôts dépend de ton TMI (Taux Marginal d'Imposition) et du montant de tes versements déductibles. Le plafond de déduction correspond à 10% de tes revenus nets imposables, dans la limite d'un plafond maximum fixé à 37 094 € pour les salariés et fonctionnaires, et 85 780 € pour les travailleurs non salariés (chiffres 2025). Le plafond reportable des trois années précédentes s'ajoute à ce plafond annuel.</p>
+            <p class="note">Ces résultats sont des estimations indicatives et ne constituent pas un conseil personnalisé.</p>
           </div>
-          <div class="metric-card">
-            <div class="metric-label">Effort d'épargne réel</div>
-            <div class="metric-value" id="metric-effort">—</div>
+
+          <div class="results-cta">
+            <p>Tu veux être accompagné pour ouvrir ton PER ?</p>
+            <a href="https://calendly.com/yanis-mahmoud/60min" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Investir maintenant →</a>
           </div>
-          <div class="metric-card">
-            <div class="metric-label">Taux d'optimisation</div>
-            <div class="metric-value" id="metric-taux">—</div>
-          </div>
-        </div>
-
-        <div class="chart-wrap">
-          <canvas id="per-chart" height="100"></canvas>
-          <p style="text-align:center; margin-top: 16px; margin-bottom: 0;">Capital estimé à la retraite : <strong id="capital-final">—</strong></p>
-        </div>
-
-        <div class="info-box">
-          <h4>Comment est calculée ton économie ?</h4>
-          <p>Ton économie d'impôts dépend de ton TMI (Taux Marginal d'Imposition) et du montant de tes versements déductibles. Le plafond de déduction correspond à 10% de tes revenus nets imposables, dans la limite d'un plafond maximum fixé à 37 094 € pour les salariés et fonctionnaires, et 85 780 € pour les travailleurs non salariés (chiffres 2025). Le plafond reportable des trois années précédentes s'ajoute à ce plafond annuel.</p>
-          <p class="note">Ces résultats sont des estimations indicatives et ne constituent pas un conseil personnalisé.</p>
-        </div>
-
-        <div class="results-cta">
-          <p>Tu veux être accompagné pour ouvrir ton PER ?</p>
-          <a href="https://calendly.com/yanis-mahmoud/60min" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Investir maintenant →</a>
         </div>
       </div>
     </div>
 
-    <div class="coming-soon-grid">
+    <!-- ============ PANEL 2 : SIMULATEUR DE CAPITALISATION ============ -->
+    <div class="tool-panel" id="panel-capi">
+      <div class="simulateur-card">
+        <div class="simulateur-header">
+          <h2>Simulateur de capitalisation — Intérêts composés</h2>
+          <p>Découvre à quel point la régularité et le temps font grandir ton épargne.</p>
+        </div>
+
+        <form id="capi-form">
+          <div class="form-grid">
+            <div class="form-col">
+              <div class="form-group">
+                <label for="capi-capital-input">Capital de départ (€)</label>
+                <input type="number" id="capi-capital-input" min="0" step="100" placeholder="Ex: 5 000" value="5000" required>
+              </div>
+
+              <div class="form-group">
+                <label for="capi-versement-input">Versement mensuel (€)</label>
+                <input type="number" id="capi-versement-input" min="0" max="5000" step="50" value="200">
+                <input type="range" id="capi-versement-slider" min="0" max="5000" step="50" value="200">
+              </div>
+            </div>
+
+            <div class="form-col">
+              <div class="form-group">
+                <label for="capi-duree-input">Durée du placement (années)</label>
+                <input type="number" id="capi-duree-input" min="1" max="40" value="15">
+                <input type="range" id="capi-duree-slider" min="1" max="40" step="1" value="15">
+              </div>
+
+              <div class="form-group">
+                <label for="capi-rendement-slider">Rendement annuel estimé (%) <span class="slider-value" id="capi-rendement-value">6%</span></label>
+                <input type="range" id="capi-rendement-slider" min="1" max="12" step="0.5" value="6">
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-gold btn-block btn-lg">Calculer ma capitalisation →</button>
+        </form>
+      </div>
+
+      <div class="results-section" id="capi-results-section">
+        <div class="simulateur-card">
+          <h2>Vos résultats</h2>
+
+          <div class="metric-grid">
+            <div class="metric-card">
+              <div class="metric-label">Capital final</div>
+              <div class="metric-value" id="capi-metric-final">—</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Total versé</div>
+              <div class="metric-value" id="capi-metric-verse">—</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Intérêts générés</div>
+              <div class="metric-value" id="capi-metric-interets">—</div>
+            </div>
+          </div>
+
+          <div class="chart-wrap">
+            <canvas id="capi-chart" height="100"></canvas>
+          </div>
+
+          <div class="info-box">
+            <h4>Comment est calculée ta capitalisation ?</h4>
+            <p>Chaque mois, ton versement s'ajoute à ton capital et génère lui-même des intérêts les mois suivants : c'est l'effet des intérêts composés. Plus la durée est longue, plus cet effet est puissant — la régularité compte souvent davantage que le montant versé.</p>
+            <p class="note">Ces résultats sont des estimations indicatives et ne constituent pas un conseil personnalisé.</p>
+          </div>
+
+          <div class="results-cta">
+            <p>Tu veux être accompagné pour placer ton épargne ?</p>
+            <a href="https://calendly.com/yanis-mahmoud/60min" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Investir maintenant →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="coming-soon-grid" style="grid-template-columns: 1fr; max-width: 460px; margin: 0 auto;">
       <div class="coming-soon-card">
         <h3>Calculateur de Zakat</h3>
         <p>Estime ta zakat sur l'épargne et les actifs.</p>
-        <span class="coming-soon-pill">Bientôt disponible</span>
-      </div>
-      <div class="coming-soon-card">
-        <h3>Simulateur d'épargne</h3>
-        <p>Projette la croissance de ton épargne dans le temps.</p>
         <span class="coming-soon-pill">Bientôt disponible</span>
       </div>
     </div>
@@ -202,17 +285,15 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <svg viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="90" cy="105" rx="34" ry="44" fill="#D4A017"/>
-          <circle cx="90" cy="62" r="28" fill="#D4A017"/>
-          <ellipse cx="80" cy="58" rx="7" ry="8" fill="#1B4332"/>
-          <ellipse cx="100" cy="58" rx="7" ry="8" fill="#1B4332"/>
-          <circle cx="82.5" cy="55.5" r="2.5" fill="white"/>
-          <circle cx="102.5" cy="55.5" r="2.5" fill="white"/>
-          <path d="M80 72 Q90 80 100 72" stroke="#1B4332" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-        </svg>
+        <span class="brand-mark">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 40V21" stroke="#33CAC2" stroke-width="3" stroke-linecap="round"/>
+            <path d="M24 24C24 24 8 22 6 8C6 8 22 7 24 24Z" fill="#00BE62"/>
+            <path d="M24 18C24 18 40 16 42 4C42 4 26 3 24 18Z" fill="#33CAC2"/>
+          </svg>
+        </span>
         <div class="footer-brand-text">
-          <span class="brand-name">INSAF Finance</span>
+          <span class="brand-name">INSAF <span class="accent">Finance</span></span>
           <span class="footer-tagline">La finance, enfin accessible.</span>
         </div>
       </div>
@@ -238,7 +319,19 @@
 <div class="modal-overlay" id="results-modal">
   <div class="modal">
     <button class="modal-close" aria-label="Fermer">×</button>
-    <h3>Vos résultats sont prêts 🐝</h3>
+    <h3>Vos résultats sont prêts 🌱</h3>
+    <p>Entre ton email pour accéder à ta simulation. Tu recevras aussi nos conseils finance chaque semaine.</p>
+    <form>
+      <input type="email" required placeholder="ton@email.com" aria-label="Adresse email">
+      <button type="submit" class="btn btn-gold btn-block">Voir mes résultats</button>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay" id="capi-modal">
+  <div class="modal">
+    <button class="modal-close" aria-label="Fermer">×</button>
+    <h3>Vos résultats sont prêts 🌱</h3>
     <p>Entre ton email pour accéder à ta simulation. Tu recevras aussi nos conseils finance chaque semaine.</p>
     <form>
       <input type="email" required placeholder="ton@email.com" aria-label="Adresse email">
@@ -249,5 +342,12 @@
 
 <script type="module" src="/assets/js/main.js"></script>
 <script type="module" src="/assets/js/simulateur-per.js"></script>
+<script type="module" src="/assets/js/simulateur-capitalisation.js"></script>
+<script>
+  document.getElementById('tool-select').addEventListener('change', (e) => {
+    document.querySelectorAll('.tool-panel').forEach((panel) => panel.classList.remove('active'));
+    document.getElementById(e.target.value === 'per' ? 'panel-per' : 'panel-capi').classList.add('active');
+  });
+</script>
 </body>
 </html>

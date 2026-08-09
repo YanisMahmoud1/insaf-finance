@@ -159,7 +159,7 @@ function initSimulateur() {
           {
             label: 'Sans PER',
             data: r.sansPER,
-            borderColor: '#A9D4C4',
+            borderColor: '#79A7A8',
             backgroundColor: 'transparent',
             borderWidth: 2,
             borderDash: [6, 4],
@@ -169,8 +169,8 @@ function initSimulateur() {
           {
             label: 'Avec PER',
             data: r.avecPER,
-            borderColor: '#D4A017',
-            backgroundColor: 'rgba(212, 160, 23, 0.12)',
+            borderColor: '#D5B661',
+            backgroundColor: 'rgba(213, 182, 97, 0.16)',
             borderWidth: 3,
             fill: true,
             pointRadius: 0,
@@ -181,7 +181,7 @@ function initSimulateur() {
       options: {
         responsive: true,
         plugins: {
-          legend: { position: 'bottom', labels: { color: '#1B2E1F', font: { family: 'Plus Jakarta Sans' } } },
+          legend: { position: 'bottom', labels: { color: '#0E2624', font: { family: 'Bricolage Grotesque' } } },
           tooltip: {
             callbacks: {
               label: (ctx) => `${ctx.dataset.label} : ${formatEUR(ctx.parsed.y)}`,
@@ -191,7 +191,7 @@ function initSimulateur() {
         scales: {
           y: {
             ticks: { callback: (v) => formatEUR(v) },
-            grid: { color: 'rgba(27,67,50,0.08)' },
+            grid: { color: 'rgba(0,51,60,0.08)' },
           },
           x: {
             grid: { display: false },
