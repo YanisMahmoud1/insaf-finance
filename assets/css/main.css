@@ -29,7 +29,8 @@
   --font-display: 'Poppins', sans-serif;
 
   --ease: 220ms cubic-bezier(.4,0,.2,1);
-  --ease-spring: 550ms cubic-bezier(.22,1.4,.36,1);
+  --spring-fn: cubic-bezier(.22,1.4,.36,1);
+  --ease-spring: 550ms var(--spring-fn);
 }
 
 * {
@@ -536,6 +537,121 @@ section {
 @keyframes floatSprout {
   0%, 100% { transform: translateY(0) rotate(-2deg); }
   50% { transform: translateY(-18px) rotate(2deg); }
+}
+
+/* ---- Hero entrance: seed -> stem -> leaves -> bloom ---- */
+.grow-ground {
+  opacity: 0;
+  animation: growFadeIn 0.4s ease forwards;
+}
+
+.grow-seed {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  opacity: 0;
+  transform: scale(0);
+  animation: growSeedPop 0.35s var(--spring-fn) 0.1s forwards;
+}
+
+.grow-stem {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: growStemDraw 0.7s cubic-bezier(.3,0,.2,1) 0.2s forwards;
+}
+
+.grow-leaf {
+  transform-box: fill-box;
+  opacity: 0;
+  animation-duration: 0.6s;
+  animation-timing-function: var(--spring-fn);
+  animation-fill-mode: forwards;
+}
+
+.grow-leaf.side-left {
+  transform-origin: 100% 100%;
+  animation-name: growLeafLeft;
+}
+
+.grow-leaf.side-right {
+  transform-origin: 0% 100%;
+  animation-name: growLeafRight;
+}
+
+.grow-leaf.tier-low {
+  animation-delay: 0.45s;
+}
+
+.grow-leaf.tier-high {
+  animation-delay: 0.75s;
+}
+
+.grow-glow {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  opacity: 0;
+  animation: growBudGlow 0.8s ease 1.15s forwards;
+}
+
+.grow-bud {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  transform: scale(0);
+  animation: growBudBloom 0.5s var(--spring-fn) 1.2s forwards;
+}
+
+@keyframes growFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes growSeedPop {
+  from { opacity: 0; transform: scale(0); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes growStemDraw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes growLeafLeft {
+  from { opacity: 0; transform: scale(0) rotate(-22deg); }
+  to { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+@keyframes growLeafRight {
+  from { opacity: 0; transform: scale(0) rotate(22deg); }
+  to { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+@keyframes growBudGlow {
+  0% { opacity: 0.55; transform: scale(1); }
+  100% { opacity: 0; transform: scale(2.3); }
+}
+
+@keyframes growBudBloom {
+  0% { transform: scale(0); }
+  65% { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+
+.hero-text-in {
+  opacity: 0;
+  animation: heroTextIn 0.7s cubic-bezier(.16,1,.3,1) 0.2s forwards;
+}
+
+@keyframes heroTextIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grow-ground, .grow-seed, .grow-leaf, .grow-bud, .hero-text-in {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .grow-stem { animation: none !important; stroke-dashoffset: 0 !important; }
+  .grow-glow { animation: none !important; opacity: 0 !important; }
 }
 
 .hero-compact {
