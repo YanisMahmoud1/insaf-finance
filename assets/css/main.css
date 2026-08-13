@@ -1536,6 +1536,89 @@ input[type="range"] {
   margin-bottom: 32px;
 }
 
+/* ---- Barème / répartition par tranche (simulateur TMI) ---- */
+.bracket-bar {
+  display: flex;
+  height: 26px;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.bracket-bar-segment {
+  height: 100%;
+  transition: width var(--ease-spring);
+}
+
+.bracket-list {
+  margin-top: 20px;
+}
+
+.bracket-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--mist-line);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+}
+
+.bracket-row:last-child {
+  border-bottom: none;
+}
+
+.bracket-row.active-tmi {
+  background: rgba(0, 190, 98, 0.07);
+  border-radius: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 0 -10px;
+}
+
+.bracket-row .label {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.bracket-row .swatch {
+  width: 11px;
+  height: 11px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.bracket-row .range {
+  color: var(--text-secondary);
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
+.bracket-row .amount {
+  font-weight: 700;
+  color: var(--navy);
+  white-space: nowrap;
+}
+
+.bracket-tmi-pill {
+  display: inline-block;
+  background: var(--green);
+  color: var(--white);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 2px 9px;
+  border-radius: var(--radius-pill);
+  margin-left: 4px;
+}
+
 .info-box {
   background: rgba(213, 182, 97, 0.16);
   border-radius: var(--radius-card);
