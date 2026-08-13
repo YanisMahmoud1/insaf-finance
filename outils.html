@@ -8,9 +8,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Bricolage+Grotesque:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="/insaf-finance/assets/outils-7WCh86Z0.js"></script>
-  <link rel="modulepreload" crossorigin href="/insaf-finance/assets/main-D4pdc4l7.js">
-  <link rel="stylesheet" crossorigin href="/insaf-finance/assets/main-CPC1lsTw.css">
+  <script type="module" crossorigin src="/insaf-finance/assets/outils-Cwl4F76l.js"></script>
+  <link rel="modulepreload" crossorigin href="/insaf-finance/assets/main-AWAUR2Xf.js">
+  <link rel="stylesheet" crossorigin href="/insaf-finance/assets/main-B1cNglzL.css">
 </head>
 <body data-page="outils">
 
@@ -56,6 +56,7 @@
         <select id="tool-select" class="tool-select">
           <option value="per">Simulateur PER — avantage fiscal</option>
           <option value="capi">Simulateur de capitalisation</option>
+          <option value="tmi">Simulateur de TMI — tranches d'imposition</option>
         </select>
       </div>
     </div>
@@ -273,6 +274,79 @@
       </div>
     </div>
 
+    <!-- ============ PANEL 3 : SIMULATEUR DE TMI ============ -->
+    <div class="tool-panel" id="panel-tmi">
+      <div class="simulateur-card">
+        <div class="simulateur-header">
+          <h2>Simulateur de TMI — Comprends ton imposition</h2>
+          <p>Découvre ta tranche marginale, ton taux moyen réel et le détail de ton impôt tranche par tranche.</p>
+        </div>
+
+        <form id="tmi-form">
+          <div class="form-grid">
+            <div class="form-col">
+              <div class="form-group">
+                <label for="tmi-revenu-input">Revenu net annuel imposable (€)</label>
+                <input type="number" id="tmi-revenu-input" min="0" step="500" placeholder="Ex: 40 000" required>
+              </div>
+            </div>
+            <div class="form-col">
+              <div class="form-group">
+                <label for="tmi-parts-select">Situation familiale</label>
+                <select id="tmi-parts-select">
+                  <option value="1">Célibataire (1 part)</option>
+                  <option value="2">Marié/Pacsé sans enfant (2 parts)</option>
+                  <option value="2.5">Marié + 1 enfant (2.5 parts)</option>
+                  <option value="3">Marié + 2 enfants (3 parts)</option>
+                  <option value="4">Marié + 3 enfants (4 parts)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-gold btn-block btn-lg">Calculer mon TMI →</button>
+        </form>
+      </div>
+
+      <div class="results-section" id="tmi-results-section">
+        <div class="simulateur-card">
+          <h2>Vos résultats</h2>
+
+          <div class="metric-grid">
+            <div class="metric-card">
+              <div class="metric-label">Tranche marginale (TMI)</div>
+              <div class="metric-value" id="tmi-metric-tmi">—</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Impôt total estimé</div>
+              <div class="metric-value" id="tmi-metric-impot">—</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Taux moyen d'imposition</div>
+              <div class="metric-value" id="tmi-metric-moyen">—</div>
+            </div>
+          </div>
+
+          <div class="chart-wrap">
+            <div class="bracket-bar" id="tmi-bracket-bar"></div>
+            <div class="bracket-list" id="tmi-bracket-list"></div>
+            <p style="text-align:center; margin-top: 16px; margin-bottom: 0;">Revenu net après impôt : <strong id="tmi-metric-net">—</strong></p>
+          </div>
+
+          <div class="info-box">
+            <h4>TMI vs taux moyen : quelle différence ?</h4>
+            <p>Ta TMI (taux marginal d'imposition) est le taux appliqué uniquement à la dernière tranche de tes revenus — pas à la totalité. L'impôt français est progressif : chaque tranche de revenu est taxée à son propre taux, du 0% jusqu'à ta TMI. Ton taux moyen (impôt total / revenu) est donc toujours inférieur à ta TMI. Le calcul applique le quotient familial : ton revenu est divisé par le nombre de parts, imposé selon le barème, puis le résultat est multiplié par ce même nombre de parts.</p>
+            <p class="note">Ces résultats sont des estimations indicatives (hors plafonnement du quotient familial, décote et autres spécificités) et ne constituent pas un conseil personnalisé.</p>
+          </div>
+
+          <div class="results-cta">
+            <p>Tu veux optimiser ta fiscalité avec une vraie stratégie ?</p>
+            <a href="https://calendly.com/yanis-mahmoud/60min" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Investir maintenant →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="coming-soon-grid" style="grid-template-columns: 1fr; max-width: 460px; margin: 0 auto;">
       <div class="coming-soon-card">
         <h3>Calculateur de Zakat</h3>
@@ -342,10 +416,22 @@
   </div>
 </div>
 
+<div class="modal-overlay" id="tmi-modal">
+  <div class="modal">
+    <button class="modal-close" aria-label="Fermer">×</button>
+    <h3>Vos résultats sont prêts 🌱</h3>
+    <p>Entre ton email pour accéder à ta simulation. Tu recevras aussi nos conseils finance chaque semaine.</p>
+    <form>
+      <input type="email" required placeholder="ton@email.com" aria-label="Adresse email">
+      <button type="submit" class="btn btn-gold btn-block">Voir mes résultats</button>
+    </form>
+  </div>
+</div>
+
 <script>
   document.getElementById('tool-select').addEventListener('change', (e) => {
     document.querySelectorAll('.tool-panel').forEach((panel) => panel.classList.remove('active'));
-    document.getElementById(e.target.value === 'per' ? 'panel-per' : 'panel-capi').classList.add('active');
+    document.getElementById(`panel-${e.target.value}`).classList.add('active');
   });
 </script>
 </body>
