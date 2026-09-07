@@ -302,33 +302,29 @@ section {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 36px;
+  gap: 6px;
 }
 
 .nav-links a {
-  font-family: var(--font-body);
-  font-weight: 400;
-  font-size: 0.92rem;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+  font-size: 0.78rem;
   color: var(--ash);
   position: relative;
-  padding: 4px 0;
-  transition: color var(--ease);
+  padding: 9px 16px;
+  border-radius: var(--radius-pill);
+  transition: color var(--ease), background var(--ease);
 }
 
-.nav-links a:hover,
-.nav-links a.active {
+.nav-links a:hover {
   color: var(--pure);
 }
 
-.nav-links a.active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -4px;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--cyan);
+.nav-links a.active {
+  color: var(--pure);
+  background: rgba(255, 255, 255, 0.14);
 }
 
 .nav-cta {
@@ -402,15 +398,37 @@ section {
    Hero
    ========================================================================== */
 
-.hero, .hero-compact, .tool-hero, .contact-hero {
+.hero-compact, .tool-hero, .contact-hero {
   background: var(--gradient-atmosphere);
   overflow: hidden;
   position: relative;
 }
 
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: url('../img/hero-bg.webp') center / cover no-repeat, var(--obsidian);
+  margin-top: -76px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(9, 10, 11, 0.35), rgba(9, 10, 11, 0.45) 55%, var(--obsidian) 96%);
+  z-index: 0;
+}
+
 .hero .container {
+  position: relative;
+  z-index: 1;
   padding-top: 64px;
   padding-bottom: 64px;
+  width: 100%;
 }
 
 .hero-copy-centered {
