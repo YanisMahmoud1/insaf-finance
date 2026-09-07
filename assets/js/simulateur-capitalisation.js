@@ -147,7 +147,7 @@ function initSimulateurCapitalisation() {
       options: {
         responsive: true,
         plugins: {
-          legend: { position: 'bottom', labels: { color: '#0E2624', font: { family: 'Bricolage Grotesque' } } },
+          legend: { position: 'bottom', labels: { color: '#F5F5F7', font: { family: 'Inter' } } },
           tooltip: {
             callbacks: {
               label: (ctx) => `${ctx.dataset.label} : ${formatEUR(ctx.parsed.y)}`,
@@ -156,10 +156,11 @@ function initSimulateurCapitalisation() {
         },
         scales: {
           y: {
-            ticks: { callback: (v) => formatEUR(v) },
-            grid: { color: 'rgba(0,51,60,0.08)' },
+            ticks: { callback: (v) => formatEUR(v), color: '#9F9FA0' },
+            grid: { color: 'rgba(255,255,255,0.08)' },
           },
           x: {
+            ticks: { color: '#9F9FA0' },
             grid: { display: false },
           },
         },

@@ -5,11 +5,11 @@
 const EMAIL_STORAGE_KEY = 'insaf_emails';
 
 const BRACKETS = [
-  { min: 0, max: 11497, rate: 0, color: '#DCE7E3' },
-  { min: 11497, max: 29315, rate: 11, color: '#33CAC2' },
+  { min: 0, max: 11497, rate: 0, color: '#4A4B4C' },
+  { min: 11497, max: 29315, rate: 11, color: '#1F6478' },
   { min: 29315, max: 83823, rate: 30, color: '#00BE62' },
   { min: 83823, max: 180294, rate: 41, color: '#D5B661' },
-  { min: 180294, max: Infinity, rate: 45, color: '#00333C' },
+  { min: 180294, max: Infinity, rate: 45, color: '#33CAC2' },
 ];
 
 function isValidEmail(email) {
