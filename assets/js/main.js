@@ -50,6 +50,19 @@ function initNav() {
   });
 }
 
+// ---- Floating nav shrinks on scroll ----
+function initNavScroll() {
+  const navbar = document.querySelector('.navbar');
+  if (!navbar) return;
+
+  const setState = () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 24);
+  };
+
+  setState();
+  window.addEventListener('scroll', setState, { passive: true });
+}
+
 // ---- Newsletter forms (all pages) ----
 function initNewsletterForms() {
   document.querySelectorAll('.newsletter-form').forEach((form) => {
@@ -168,6 +181,7 @@ function initScrollReveal() {
 
 document.addEventListener('DOMContentLoaded', () => {
   initNav();
+  initNavScroll();
   initNewsletterForms();
   initEbookModal();
   initFilters();

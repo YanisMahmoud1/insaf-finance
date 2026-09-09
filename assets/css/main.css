@@ -248,17 +248,33 @@ section {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(0, 51, 60, 0.55);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 18px 20px 0;
 }
 
 .navbar .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 76px;
+  max-width: 1100px;
+  height: 74px;
+  padding: 0 26px;
+  background: rgba(0, 51, 60, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: height var(--ease), padding var(--ease);
+}
+
+.navbar.scrolled .container {
+  height: 58px;
+  padding: 0 22px;
+}
+
+.navbar.scrolled .brand-mark {
+  width: 34px;
+  height: 34px;
 }
 
 .brand {
@@ -276,7 +292,7 @@ section {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: background var(--ease);
+  transition: background var(--ease), width var(--ease), height var(--ease);
 }
 
 .brand:hover .brand-mark {
@@ -354,23 +370,26 @@ section {
 @media (max-width: 860px) {
   .nav-links {
     position: fixed;
-    top: 76px;
-    left: 0;
-    right: 0;
-    background: var(--obsidian);
+    top: 100px;
+    left: 20px;
+    right: 20px;
+    background: var(--graphite);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-card);
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
-    padding: 8px 24px 20px;
-    transform: translateY(-120%);
+    padding: 8px 20px 16px;
+    transform: translateY(-16px);
     opacity: 0;
+    pointer-events: none;
     transition: transform var(--ease), opacity var(--ease);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .nav-links.open {
     transform: translateY(0);
     opacity: 1;
+    pointer-events: auto;
   }
 
   .nav-links a {
@@ -411,7 +430,7 @@ section {
   display: flex;
   align-items: center;
   background: url('../img/hero-bg.webp') center / cover no-repeat, var(--obsidian);
-  margin-top: -76px;
+  margin-top: -92px;
 }
 
 .hero::before {
