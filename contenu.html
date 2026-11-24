@@ -10,9 +10,10 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="/insaf-finance/assets/favicon-9lpOc95X.png">
 <link rel="apple-touch-icon" href="/insaf-finance/assets/apple-touch-icon-COQ0Q9JV.png">
-  <script type="module" crossorigin src="/insaf-finance/assets/main-DgAjhmwL.js"></script>
-  <script type="module" crossorigin src="/insaf-finance/assets/videos-C-2F7E_O.js"></script>
-  <link rel="stylesheet" crossorigin href="/insaf-finance/assets/main-GKDjwQFr.css">
+  <script type="module" crossorigin src="/insaf-finance/assets/contenu-CcUyuoqc.js"></script>
+  <link rel="modulepreload" crossorigin href="/insaf-finance/assets/main-EbYwgvk4.js">
+  <link rel="modulepreload" crossorigin href="/insaf-finance/assets/videos-C-2F7E_O.js">
+  <link rel="stylesheet" crossorigin href="/insaf-finance/assets/main-vadVZBhi.css">
 </head>
 <body data-page="contenu">
 
@@ -57,51 +58,35 @@
   </div>
 </section>
 
-<section class="ebooks">
+<section class="resources">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Ressources</span>
-      <h2 class="section-title">E-Books</h2>
-    </div>
-    <div class="ebook-grid">
-      <div class="ebook-card reveal">
-        <div class="ebook-cover">
-          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
-            <path d="M24 38V22" stroke="#33CAC2" stroke-width="3" stroke-linecap="round"/>
-            <path d="M24 25C24 25 10 23 8 10C8 10 22 9 24 25Z" fill="#00BE62"/>
-            <path d="M24 20C24 20 38 18 40 6C40 6 26 5 24 20Z" fill="#33CAC2"/>
-          </svg>
-          <span>Guide de l'investisseur musulman débutant</span>
+    <div class="resources-grid">
+      <div class="resource-col">
+        <div class="resource-head reveal">
+          <span class="eyebrow">Ressources</span>
+          <h2 class="section-title">E-book</h2>
         </div>
-        <h4>Guide de l'investisseur musulman débutant</h4>
-        <p>Les fondamentaux pour démarrer sereinement.</p>
-        <button class="btn btn-outline btn-block" data-ebook="Guide de l'investisseur musulman débutant">Télécharger gratuitement →</button>
+        <!-- TODO: remplacer titre, description et couverture par l'e-book réel -->
+        <div class="ebook-card ebook-feature reveal">
+          <div class="ebook-cover">
+            <img src="/insaf-finance/assets/logo-CJm1sNuL.png" alt="" width="40" height="40">
+            <span>Guide de l'investisseur musulman débutant</span>
+          </div>
+          <div class="ebook-info">
+            <h4>Guide de l'investisseur musulman débutant</h4>
+            <p>Les fondamentaux pour démarrer sereinement.</p>
+            <button class="btn btn-primary btn-block" data-ebook="Guide de l'investisseur musulman débutant">Télécharger gratuitement →</button>
+          </div>
+        </div>
       </div>
-      <div class="ebook-card reveal">
-        <div class="ebook-cover">
-          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
-            <path d="M24 38V22" stroke="#33CAC2" stroke-width="3" stroke-linecap="round"/>
-            <path d="M24 25C24 25 10 23 8 10C8 10 22 9 24 25Z" fill="#00BE62"/>
-            <path d="M24 20C24 20 38 18 40 6C40 6 26 5 24 20Z" fill="#33CAC2"/>
-          </svg>
-          <span>Comprendre le PER en 10 minutes</span>
+
+      <div class="resource-col">
+        <div class="resource-head reveal">
+          <span class="eyebrow">Blog</span>
+          <h2 class="section-title">Articles</h2>
         </div>
-        <h4>Comprendre le PER en 10 minutes</h4>
-        <p>L'essentiel du Plan d'Épargne Retraite, sans jargon.</p>
-        <button class="btn btn-outline btn-block" data-ebook="Comprendre le PER en 10 minutes">Télécharger gratuitement →</button>
-      </div>
-      <div class="ebook-card reveal">
-        <div class="ebook-cover">
-          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
-            <path d="M24 38V22" stroke="#33CAC2" stroke-width="3" stroke-linecap="round"/>
-            <path d="M24 25C24 25 10 23 8 10C8 10 22 9 24 25Z" fill="#00BE62"/>
-            <path d="M24 20C24 20 38 18 40 6C40 6 26 5 24 20Z" fill="#33CAC2"/>
-          </svg>
-          <span>Budget halal : la méthode complète</span>
-        </div>
-        <h4>Budget halal : la méthode complète</h4>
-        <p>Organise ton budget en accord avec tes valeurs.</p>
-        <button class="btn btn-outline btn-block" data-ebook="Budget halal : la méthode complète">Télécharger gratuitement →</button>
+        <div class="article-list" id="contenu-articles" data-articles-container data-count="3"></div>
+        <a href="https://insaffr.wordpress.com/" target="_blank" rel="noopener" class="read-more article-more">Voir tous les articles →</a>
       </div>
     </div>
   </div>
@@ -122,44 +107,6 @@
         <input type="email" required placeholder="ton@email.com" aria-label="Adresse email">
         <button type="submit" class="btn btn-gold">Je m'abonne</button>
       </form>
-    </div>
-  </div>
-</section>
-
-<section class="articles">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Blog</span>
-      <h2 class="section-title">Articles</h2>
-    </div>
-    <div class="article-grid">
-      <a href="#" class="article-card reveal"><!-- TODO: lien article réel -->
-        <div class="article-thumb"></div>
-        <div class="article-body">
-          <span class="video-badge">Finance halal</span>
-          <h4>Finance halal : par où commencer en 2025 ?</h4>
-          <p>Les premières étapes concrètes pour aligner ton épargne avec tes valeurs, sans te perdre dans le jargon.</p>
-          <span class="read-more">Lire l'article →</span>
-        </div>
-      </a>
-      <a href="#" class="article-card reveal"><!-- TODO: lien article réel -->
-        <div class="article-thumb"></div>
-        <div class="article-body">
-          <span class="video-badge">Investissement</span>
-          <h4>PER vs assurance-vie : lequel choisir ?</h4>
-          <p>Deux enveloppes, deux logiques. On compare fiscalité, souplesse et horizon pour t'aider à trancher.</p>
-          <span class="read-more">Lire l'article →</span>
-        </div>
-      </a>
-      <a href="#" class="article-card reveal"><!-- TODO: lien article réel -->
-        <div class="article-thumb"></div>
-        <div class="article-body">
-          <span class="video-badge">Quotidien</span>
-          <h4>Comment calculer sa zakat sur l'épargne ?</h4>
-          <p>La méthode pas-à-pas pour évaluer ta zakat sur les liquidités et l'épargne, simplement.</p>
-          <span class="read-more">Lire l'article →</span>
-        </div>
-      </a>
     </div>
   </div>
 </section>
